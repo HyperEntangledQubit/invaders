@@ -4,7 +4,7 @@
 use std::error::Error;
 use rusty_audio::Audio;
 
-fn main(){// -> Result <(), Box<dyn Error>> {
+fn main() -> Result <(), Box<dyn Error>> {
     let mut audio = Audio::new();
 
     // Replace these files with the actual sounds
@@ -30,4 +30,5 @@ fn main(){// -> Result <(), Box<dyn Error>> {
 
     // cleanup
     audio.wait();
+    Ok(())
 }
