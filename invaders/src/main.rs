@@ -1,5 +1,3 @@
-#[allow(unused_imports)]
-
 // use glob::glob;
 
 use crossterm::{
@@ -44,6 +42,20 @@ fn main() -> Result <(), Box<dyn Error>> {
     stdout.execute(EnterAlternateScreen)?;
     stdout.execute(Hide)?;
 
+    // Game loop
+    'gameloop: loop {
+        while event::poll(Duration::default())? {
+           if let Event::Key(key_event) = event::read()? {
+                match key_event.code {
+                    KeyCode::Esc | KeyCode::Char('q') => {
+                        audio.play("lose");
+                        break 'gameloop;
+                    }
+                    _ => {}
+                }
+           }
+        }
+    }
 
     // cleanup
     audio.wait();
