@@ -1,5 +1,5 @@
 [package]
-name = "invaders"
+name = "spaceinvaders"
 version = "0.1.0"
 authors = ["HyperEntangledQubit <25336193+HyperEntangledQubit@users.noreply.github.com>"]
 edition = "2021"
